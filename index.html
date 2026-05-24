@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MotionForge is a visual GSAP motion builder for scroll reveals, hero sequences, galleries, and portfolio sections.">
+    <title>MotionForge - GSAP Motion Builder</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="src/styles.css">
+  </head>
+  <body>
+    <div class="page-grid" aria-hidden="true"></div>
+    <div class="sweep-lines" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="wordmark" href="#builder" aria-label="MotionForge home">
+        <span>MotionForge</span>
+      </a>
+      <nav class="topnav" aria-label="Primary navigation">
+        <a href="#builder" data-i18n="navBuilder">Builder</a>
+        <a href="#timeline" data-i18n="navTimeline">Timeline</a>
+        <a href="#export" data-i18n="navExport">Export</a>
+      </nav>
+      <button class="language-switch" id="languageToggle" type="button" aria-pressed="false" aria-label="Switch language">
+        <span>EN</span>
+        <span class="switch-track" aria-hidden="true"><span></span></span>
+        <span>ES</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="studio-intro" aria-labelledby="pageTitle">
+        <div class="intro-copy">
+          <p class="eyebrow" data-i18n="eyebrow">GSAP motion studio</p>
+          <h1 id="pageTitle" data-i18n="headline">Design scroll animations you can actually ship.</h1>
+          <p data-i18n="subhead">Tune a preset, test it live, then export clean GSAP code for web sections, cards, galleries, and portfolio stories.</p>
+        </div>
+        <div class="intro-meter" aria-label="Motion recipe stats">
+          <span data-i18n="meterOne">4 animation presets</span>
+          <span data-i18n="meterTwo">copy-ready code</span>
+          <span data-i18n="meterThree">ScrollTrigger aware</span>
+        </div>
+      </section>
+
+      <section class="builder-shell" id="builder" aria-label="Motion builder">
+        <aside class="control-panel" aria-label="Motion controls">
+          <div class="panel-heading">
+            <p class="eyebrow" data-i18n="recipeEyebrow">Motion recipe</p>
+            <h2 data-i18n="recipeTitle">Build the sequence</h2>
+          </div>
+
+          <div class="preset-list" id="presetList" aria-label="Animation presets">
+            <button class="preset-card is-active" type="button" data-preset="hero">
+              <strong data-i18n="presetHero">Hero Reveal</strong>
+              <span data-i18n="presetHeroDesc">Bold entrance for a first section.</span>
+            </button>
+            <button class="preset-card" type="button" data-preset="cards">
+              <strong data-i18n="presetCards">Product Cards</strong>
+              <span data-i18n="presetCardsDesc">Staggered panels with useful depth.</span>
+            </button>
+            <button class="preset-card" type="button" data-preset="story">
+              <strong data-i18n="presetStory">Scroll Story</strong>
+              <span data-i18n="presetStoryDesc">Pinned narrative movement.</span>
+            </button>
+            <button class="preset-card" type="button" data-preset="gallery">
+              <strong data-i18n="presetGallery">Gallery Motion</strong>
+              <span data-i18n="presetGalleryDesc">Image grid reveal with parallax feel.</span>
+            </button>
+          </div>
+
+          <div class="control-grid">
+            <label class="range-control" for="duration">
+              <span><span data-i18n="duration">Duration</span><output id="durationValue" for="duration">1.20s</output></span>
+              <input id="duration" type="range" min="0.35" max="2.4" step="0.05" value="1.2">
+            </label>
+            <label class="range-control" for="stagger">
+              <span><span data-i18n="stagger">Stagger</span><output id="staggerValue" for="stagger">0.08s</output></span>
+              <input id="stagger" type="range" min="0" max="0.28" step="0.01" value="0.08">
+            </label>
+            <label class="range-control" for="distance">
+              <span><span data-i18n="distance">Distance</span><output id="distanceValue" for="distance">70px</output></span>
+              <input id="distance" type="range" min="0" max="180" step="5" value="70">
+            </label>
+            <label class="range-control" for="rotation">
+              <span><span data-i18n="rotation">Rotation</span><output id="rotationValue" for="rotation">0deg</output></span>
+              <input id="rotation" type="range" min="-24" max="24" step="1" value="0">
+            </label>
+            <label class="range-control" for="scale">
+              <span><span data-i18n="scale">Scale</span><output id="scaleValue" for="scale">0.90x</output></span>
+              <input id="scale" type="range" min="0.72" max="1.12" step="0.01" value="0.9">
+            </label>
+            <label class="range-control" for="scrub">
+              <span><span data-i18n="scrub">Scrub</span><output id="scrubValue" for="scrub">0.80s</output></span>
+              <input id="scrub" type="range" min="0.1" max="2.5" step="0.1" value="0.8">
+            </label>
+          </div>
+
+          <div class="select-grid">
+            <label for="direction">
+              <span data-i18n="direction">Direction</span>
+              <select id="direction">
+                <option value="up">Up</option>
+                <option value="down">Down</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+              </select>
+            </label>
+            <label for="ease">
+              <span data-i18n="ease">Ease</span>
+              <select id="ease">
+                <option value="power3.out">power3.out</option>
+                <option value="expo.out">expo.out</option>
+                <option value="back.out(1.6)">back.out(1.6)</option>
+                <option value="circ.out">circ.out</option>
+                <option value="sine.inOut">sine.inOut</option>
+              </select>
+            </label>
+            <label for="theme">
+              <span data-i18n="theme">Theme</span>
+              <select id="theme">
+                <option value="ink">Ink Studio</option>
+                <option value="paper">Paper Lab</option>
+                <option value="signal">Signal Desk</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <label class="toggle">
+              <input id="split" type="checkbox" checked>
+              <span></span>
+              <b data-i18n="splitText">Split text</b>
+            </label>
+            <label class="toggle">
+              <input id="scroll" type="checkbox">
+              <span></span>
+              <b>ScrollTrigger</b>
+            </label>
+            <label class="toggle">
+              <input id="pin" type="checkbox">
+              <span></span>
+              <b data-i18n="pin">Pin section</b>
+            </label>
+          </div>
+
+          <div class="action-row">
+            <button class="primary-action" id="runMotion" type="button" data-i18n="runMotion">Run motion</button>
+            <button class="secondary-action" id="randomize" type="button" data-i18n="randomize">Randomize</button>
+            <button class="secondary-action" id="saveRecipe" type="button" data-i18n="saveRecipe">Save recipe</button>
+          </div>
+        </aside>
+
+        <section class="preview-panel" aria-labelledby="previewTitle">
+          <div class="panel-heading preview-heading">
+            <div>
+              <p class="eyebrow" data-i18n="livePreview">Live preview</p>
+              <h2 id="previewTitle">Hero Reveal</h2>
+            </div>
+            <span class="status-pill" id="statusPill" data-i18n="ready">Ready</span>
+          </div>
+
+          <div class="preview-stage theme-ink" id="previewStage">
+            <div class="stage-rail" aria-hidden="true"></div>
+            <div class="depth-layer" aria-hidden="true">
+              <img src="assets/motion-depth.svg" alt="" data-parallax data-orientation="down left" data-scale="1.14" data-delay="0.55">
+            </div>
+            <div class="stage-content">
+              <p class="stage-kicker" id="stageKicker">Portfolio launch</p>
+              <h3 id="stageTitle">Make the first screen feel alive.</h3>
+              <p class="preview-copy" id="stageCopy">A layered entrance with split text, controlled distance, and soft stagger for portfolio-ready sections.</p>
+              <div class="preview-chips" id="previewChips"></div>
+            </div>
+            <div class="motion-cards" id="motionCards"></div>
+            <div class="flow-lines" aria-hidden="true">
+              <span class="flow-line"></span>
+              <span class="flow-line"></span>
+              <span class="flow-line"></span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="timeline-section" id="timeline" aria-labelledby="timelineTitle">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="timelineEyebrow">Timeline</p>
+          <h2 id="timelineTitle" data-i18n="timelineTitle">See the motion as a sequence.</h2>
+        </div>
+        <div class="timeline-board" id="timelineBoard"></div>
+      </section>
+
+      <section class="export-section" id="export" aria-labelledby="exportTitle">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="exportEyebrow">Export</p>
+          <h2 id="exportTitle" data-i18n="exportTitle">Take the recipe into your next project.</h2>
+        </div>
+        <div class="export-shell">
+          <div class="code-tabs" role="tablist" aria-label="Code export tabs">
+            <button class="is-active" type="button" data-tab="html" role="tab" aria-selected="true">HTML</button>
+            <button type="button" data-tab="css" role="tab" aria-selected="false">CSS</button>
+            <button type="button" data-tab="js" role="tab" aria-selected="false">JS</button>
+          </div>
+          <button class="copy-button" id="copyCode" type="button" data-i18n="copyCode">Copy code</button>
+          <pre class="code-block"><code id="codeOutput"></code></pre>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Recipe saved</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.6.1/dist/simpleParallax.min.js"></script>
+    <script src="src/parallax.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>

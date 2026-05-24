@@ -1,0 +1,20 @@
+{
+  "name": "motionforge",
+  "version": "1.0.0",
+  "description": "A visual GSAP motion builder for portfolio sections, scroll reveals, and animated web snippets.",
+  "private": false,
+  "scripts": {
+    "check": "node --check src/app.js && node --check src/parallax.js",
+    "start": "python -m http.server 5240"
+  },
+  "keywords": [
+    "gsap",
+    "scrolltrigger",
+    "animation",
+    "frontend",
+    "portfolio",
+    "motion-design"
+  ],
+  "author": "Alfredo Oliva",
+  "license": "MIT"
+}

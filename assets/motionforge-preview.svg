@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#111317"/>
+  <rect x="58" y="48" width="1084" height="624" fill="#f5f1e8"/>
+  <g stroke="#111317" stroke-width="1" opacity="0.14">
+    <path d="M58 168H1142M58 288H1142M58 408H1142M58 528H1142"/>
+    <path d="M178 48V672M298 48V672M418 48V672M538 48V672M658 48V672M778 48V672M898 48V672M1018 48V672"/>
+  </g>
+  <text x="110" y="128" fill="#111317" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="900">MotionForge</text>
+  <text x="110" y="234" fill="#111317" font-family="Segoe UI, Arial, sans-serif" font-size="86" font-weight="900">GSAP motion lab</text>
+  <text x="114" y="288" fill="#5f6963" font-family="Segoe UI, Arial, sans-serif" font-size="24">Tune, preview, and export scroll-ready animation snippets.</text>
+  <rect x="110" y="376" width="250" height="154" fill="#fffaf1" stroke="#111317" stroke-width="4"/>
+  <rect x="398" y="376" width="250" height="154" fill="#fffaf1" stroke="#111317" stroke-width="4"/>
+  <rect x="686" y="376" width="250" height="154" fill="#fffaf1" stroke="#111317" stroke-width="4"/>
+  <path d="M146 426h132M434 426h132M722 426h132" stroke="#175b47" stroke-width="14" stroke-linecap="round"/>
+  <path d="M146 470h170M434 470h152M722 470h170" stroke="#c6bfb0" stroke-width="12" stroke-linecap="round"/>
+  <path d="M146 512h110M434 512h112M722 512h118" stroke="#c6bfb0" stroke-width="12" stroke-linecap="round"/>
+  <path d="M118 586c122-84 234-94 340-22 100 68 212 64 354-40" fill="none" stroke="#c95f34" stroke-width="12" stroke-linecap="round"/>
+</svg>
