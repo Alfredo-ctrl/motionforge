@@ -2,15 +2,15 @@
 
 MotionForge is a visual GSAP + ScrollTrigger playground for building scroll-driven web sections.
 
-It shows the animation patterns directly in the page: sticky scenes, scrubbed scroll movement, floating labels, horizontal cards, live presets, and copy-ready HTML/CSS/JS.
+It shows the animation patterns directly in the page: kinetic text, sticky scenes, scrubbed scroll movement, floating labels, horizontal cards, live presets, and copy-ready HTML/CSS/JS.
 
 ![MotionForge preview](assets/motionforge-preview.svg)
 
 ## What It Does
 
 - Demonstrates real scroll-controlled animation with GSAP ScrollTrigger.
-- Uses scrub, pin, labels, sticky scenes, floating tags, and horizontal movement.
-- Includes a friendly motion editor with presets and sliders.
+- Uses scrub, pin, labels, sticky scenes, floating tags, animated showcase cards, marquees, and horizontal movement.
+- Includes a friendly motion editor with presets, sliders, visible readouts, a playbar, and a changing preview scene.
 - Generates copy-ready HTML, CSS, and JavaScript.
 - Uses simpleParallax for a depth layer.
 - Respects `prefers-reduced-motion`.

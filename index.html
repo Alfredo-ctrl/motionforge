@@ -16,6 +16,7 @@
       <a class="wordmark" href="#top">motionforge</a>
       <nav class="topnav" aria-label="Navegacion principal">
         <a href="#what" data-i18n="navWhat">Que hace</a>
+        <a href="#showcase" data-i18n="navShowcase">Showcase</a>
         <a href="#scrollStory" data-i18n="navScroll">Scroll</a>
         <a href="#builder" data-i18n="navBuilder">Editor</a>
         <a href="#export" data-i18n="navExport">Exportar</a>
@@ -85,6 +86,61 @@
             <h3 data-i18n="ideaThreeTitle">Copias el codigo</h3>
             <p data-i18n="ideaThreeText">Exporta una base HTML, CSS y JS con GSAP para llevarla a otra web.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="kinetic-showcase" id="showcase" aria-labelledby="showcaseTitle">
+        <div class="showcase-sticky">
+          <div class="showcase-copy">
+            <p class="kicker" data-i18n="showcaseKicker">Showcase animado</p>
+            <h2 id="showcaseTitle" class="kinetic-title">
+              <span class="kinetic-word word-one" data-i18n="showcaseWordOne">Texto</span>
+              <span class="kinetic-word word-two" data-i18n="showcaseWordTwo">vivo</span>
+              <span class="kinetic-word word-three" data-i18n="showcaseWordThree">con scroll.</span>
+            </h2>
+            <p class="showcase-subhead" data-i18n="showcaseSubhead">Esta parte esta hecha para sentirse como una demo: todo cambia mientras bajas, no solo aparece.</p>
+          </div>
+
+          <div class="showcase-stage" aria-hidden="true">
+            <div class="color-curtain curtain-a"></div>
+            <div class="color-curtain curtain-b"></div>
+            <div class="showcase-card showcase-card-a">
+              <span>01</span>
+              <b>split</b>
+            </div>
+            <div class="showcase-card showcase-card-b">
+              <span>02</span>
+              <b>scrub</b>
+            </div>
+            <div class="showcase-card showcase-card-c">
+              <span>03</span>
+              <b>pin</b>
+            </div>
+            <div class="showcase-card showcase-card-d">
+              <span>04</span>
+              <b>export</b>
+            </div>
+            <div class="showcase-code">
+              <span>gsap.timeline({</span>
+              <span>scrollTrigger: { scrub: 1, pin: true }</span>
+              <span>}).to(".web", { alive: true })</span>
+            </div>
+          </div>
+
+          <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+              <span>ScrollTrigger</span>
+              <span>Split text</span>
+              <span>Pin scenes</span>
+              <span>Scrub motion</span>
+              <span>Timeline labels</span>
+              <span>ScrollTrigger</span>
+              <span>Split text</span>
+              <span>Pin scenes</span>
+              <span>Scrub motion</span>
+              <span>Timeline labels</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -299,7 +355,15 @@
           </div>
 
           <div class="preview-stage theme-pop" id="previewStage">
+            <div class="editor-readout" aria-label="Valores actuales de la animacion">
+              <span><b id="readoutPreset">Entrada wow</b><small>preset</small></span>
+              <span><b id="readoutDuration">1.05s</b><small>duration</small></span>
+              <span><b id="readoutDistance">80px</b><small>distance</small></span>
+              <span><b id="readoutEase">expo.out</b><small>ease</small></span>
+            </div>
+            <div class="stage-playbar" aria-hidden="true"><span id="playheadFill"></span></div>
             <div class="stage-tags" id="previewChips"></div>
+            <div class="motion-visual" id="motionVisual"></div>
             <div class="stage-copy">
               <p class="stage-kicker" id="stageKicker">Hero con ritmo</p>
               <h3 id="stageTitle">Tu seccion entra como escena.</h3>

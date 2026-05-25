@@ -7,6 +7,7 @@
   var copy = {
     es: {
       navWhat: "Que hace",
+      navShowcase: "Showcase",
       navScroll: "Scroll",
       navBuilder: "Editor",
       navExport: "Exportar",
@@ -25,6 +26,11 @@
       ideaTwoText: "Cambias preset, velocidad, direccion, escala, rotacion y estilo desde controles simples.",
       ideaThreeTitle: "Copias el codigo",
       ideaThreeText: "Exporta una base HTML, CSS y JS con GSAP para llevarla a otra web.",
+      showcaseKicker: "Showcase animado",
+      showcaseWordOne: "Texto",
+      showcaseWordTwo: "vivo",
+      showcaseWordThree: "con scroll.",
+      showcaseSubhead: "Esta parte esta hecha para sentirse como una demo: todo cambia mientras bajas, no solo aparece.",
       phoneOne: "Texto entra con ritmo.",
       phoneTwo: "Las tarjetas se apilan.",
       phoneThree: "Las capas dan profundidad.",
@@ -79,6 +85,7 @@
     },
     en: {
       navWhat: "What it does",
+      navShowcase: "Showcase",
       navScroll: "Scroll",
       navBuilder: "Builder",
       navExport: "Export",
@@ -97,6 +104,11 @@
       ideaTwoText: "Change preset, speed, direction, scale, rotation, and style from simple controls.",
       ideaThreeTitle: "You copy the code",
       ideaThreeText: "Export an HTML, CSS, and JS base with GSAP for another website.",
+      showcaseKicker: "Animated showcase",
+      showcaseWordOne: "Living",
+      showcaseWordTwo: "text",
+      showcaseWordThree: "on scroll.",
+      showcaseSubhead: "This section is built to feel like a demo: everything changes while you scroll, not only when it appears.",
       phoneOne: "Text enters with rhythm.",
       phoneTwo: "Cards stack into place.",
       phoneThree: "Layers add depth.",
@@ -242,6 +254,12 @@
   var stageCopy = document.getElementById("stageCopy");
   var previewChips = document.getElementById("previewChips");
   var motionCards = document.getElementById("motionCards");
+  var motionVisual = document.getElementById("motionVisual");
+  var playheadFill = document.getElementById("playheadFill");
+  var readoutPreset = document.getElementById("readoutPreset");
+  var readoutDuration = document.getElementById("readoutDuration");
+  var readoutDistance = document.getElementById("readoutDistance");
+  var readoutEase = document.getElementById("readoutEase");
   var codeOutput = document.getElementById("codeOutput");
   var toast = document.getElementById("toast");
 
@@ -304,6 +322,30 @@
     });
   }
 
+  function visualMarkup() {
+    if (state.preset === "cards") {
+      return "<span class=\"motion-beam\"></span><span class=\"visual-piece\">card 1</span><span class=\"visual-piece\">card 2</span><span class=\"visual-piece\">card 3</span><span class=\"visual-piece\">cta</span>";
+    }
+    if (state.preset === "story") {
+      return "<span class=\"motion-beam\"></span><span class=\"visual-piece\">start</span><span class=\"visual-piece\">pin</span><span class=\"visual-piece\">scrub</span><span class=\"visual-piece\">end</span>";
+    }
+    if (state.preset === "gallery") {
+      return "<span class=\"motion-beam\"></span><span class=\"visual-piece\">img</span><span class=\"visual-piece\">tag</span><span class=\"visual-piece\">tile</span><span class=\"visual-piece\">depth</span>";
+    }
+    return "<span class=\"motion-beam\"></span><span class=\"visual-piece\">text</span><span class=\"visual-piece\">label</span><span class=\"visual-piece\">card</span><span class=\"visual-piece\">ship</span>";
+  }
+
+  function updateReadout() {
+    var preset = presets[state.preset];
+    readoutPreset.textContent = localize(preset.title);
+    readoutDuration.textContent = Number(state.duration).toFixed(2) + "s";
+    readoutDistance.textContent = state.distance + "px";
+    readoutEase.textContent = state.ease;
+    previewStage.style.setProperty("--live-distance", state.distance + "px");
+    previewStage.style.setProperty("--live-rotation", state.rotation + "deg");
+    previewStage.style.setProperty("--live-scale", state.scale);
+  }
+
   function renderPreview() {
     var preset = presets[state.preset];
     previewTitle.textContent = localize(preset.title);
@@ -311,6 +353,8 @@
     splitWords(stageTitle, localize(preset.headline));
     stageCopy.textContent = localize(preset.text);
     previewStage.className = "preview-stage theme-" + state.theme;
+    previewStage.dataset.preset = state.preset;
+    updateReadout();
     previewChips.innerHTML = "";
     preset.chips.forEach(function (chip) {
       var span = document.createElement("span");
@@ -319,6 +363,7 @@
       previewChips.appendChild(span);
     });
     motionCards.innerHTML = "";
+    motionVisual.innerHTML = visualMarkup();
     preset.cards.forEach(function (card) {
       var article = document.createElement("article");
       article.className = "motion-card";
@@ -349,9 +394,10 @@
       previewTimeline.kill();
     }
 
-    var selector = ".stage-kicker, .split-unit, #stageTitle, .preview-copy, .motion-card, .preview-chip";
+    var selector = ".stage-kicker, .split-unit, #stageTitle, .preview-copy, .motion-card, .preview-chip, .visual-piece, .motion-beam, #playheadFill";
     window.gsap.killTweensOf(selector);
     window.gsap.set(selector, { clearProps: "all" });
+    window.gsap.set(playheadFill, { scaleX: 0 });
 
     var from = Object.assign(directionVars(), {
       autoAlpha: 0,
@@ -371,8 +417,11 @@
       .from(".stage-kicker", { y: 18, autoAlpha: 0, duration: 0.38 }, 0)
       .from(state.split ? ".split-unit" : "#stageTitle", Object.assign({}, from, { duration: Number(state.duration), stagger: Number(state.stagger) }), 0.05)
       .from(".preview-copy", { y: 22, autoAlpha: 0, duration: 0.55 }, 0.2)
-      .from(".motion-card", Object.assign({}, from, { duration: Number(state.duration) * 0.82, stagger: Number(state.stagger) + 0.04 }), 0.28)
-      .from(".preview-chip", { y: 18, x: 14, rotation: -8, autoAlpha: 0, duration: 0.42, stagger: 0.04 }, 0.36);
+      .from(".visual-piece", Object.assign({}, from, { duration: Number(state.duration), stagger: Number(state.stagger) + 0.03 }), 0.18)
+      .from(".motion-beam", { scaleX: 0, transformOrigin: "left", duration: Number(state.duration), ease: "power2.out" }, 0.24)
+      .from(".motion-card", Object.assign({}, from, { duration: Number(state.duration) * 0.82, stagger: Number(state.stagger) + 0.04 }), 0.34)
+      .from(".preview-chip", { y: 18, x: 14, rotation: -8, autoAlpha: 0, duration: 0.42, stagger: 0.04 }, 0.42)
+      .to(playheadFill, { scaleX: 1, duration: Math.max(0.6, Number(state.duration) + Number(state.stagger) * 8), ease: "none" }, 0);
   }
 
   function markActivePreset() {
@@ -604,6 +653,58 @@
         end: "bottom top",
         scrub: 1
       }
+    });
+
+    window.gsap.to(".code-chip", {
+      x: function (index) {
+        return [120, -95, 80][index] || 60;
+      },
+      y: function (index) {
+        return [90, -70, -110][index] || 40;
+      },
+      rotation: function (index) {
+        return [12, -9, 16][index] || 8;
+      },
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+
+    var showcaseTl = window.gsap.timeline({
+      scrollTrigger: {
+        trigger: ".kinetic-showcase",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1
+      }
+    });
+
+    showcaseTl
+      .from(".kinetic-word", { yPercent: 120, rotation: -8, autoAlpha: 0, stagger: 0.08, duration: 0.24, ease: "power3.out" }, 0)
+      .from(".showcase-subhead", { y: 70, autoAlpha: 0, duration: 0.18 }, 0.1)
+      .from(".showcase-card", { y: 180, x: -80, rotation: -18, autoAlpha: 0, stagger: 0.06, duration: 0.35, ease: "back.out(1.4)" }, 0.14)
+      .from(".showcase-code span", { x: -80, autoAlpha: 0, stagger: 0.06, duration: 0.22 }, 0.28)
+      .to(".word-one", { xPercent: 10, scale: 1.08, color: "#ff5a4f", duration: 0.22 }, 0.34)
+      .to(".word-two", { xPercent: -14, rotation: 4, scale: 1.22, backgroundColor: "#31a8ff", duration: 0.28 }, 0.42)
+      .to(".word-three", { xPercent: 8, color: "#141414", textShadow: "10px 10px 0 #c6ff42", duration: 0.28 }, 0.5)
+      .to(".curtain-a", { xPercent: -44, rotation: -8, duration: 0.35 }, 0.3)
+      .to(".curtain-b", { xPercent: 38, rotation: 7, duration: 0.35 }, 0.34)
+      .to(".showcase-card-a", { x: 220, y: 80, rotation: 12, backgroundColor: "#c6ff42", duration: 0.38 }, 0.44)
+      .to(".showcase-card-b", { x: -180, y: 170, rotation: -14, backgroundColor: "#ff73c7", duration: 0.38 }, 0.48)
+      .to(".showcase-card-c", { x: 120, y: -180, rotation: 9, backgroundColor: "#31a8ff", duration: 0.38 }, 0.52)
+      .to(".showcase-card-d", { x: -210, y: -120, rotation: 15, backgroundColor: "#ffd84d", duration: 0.38 }, 0.56)
+      .to(".showcase-code", { y: -90, rotation: 2, scale: 1.06, duration: 0.3 }, 0.68)
+      .to(".kinetic-word", { filter: "saturate(1.8) contrast(1.12)", duration: 0.22 }, 0.76);
+
+    window.gsap.to(".marquee-track", {
+      xPercent: -50,
+      duration: 18,
+      ease: "none",
+      repeat: -1
     });
 
     window.gsap.utils.toArray(".idea-card").forEach(function (card, index) {
