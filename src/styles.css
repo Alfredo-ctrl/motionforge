@@ -21,7 +21,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -31,7 +31,7 @@ body {
   background:
     linear-gradient(90deg, rgba(49, 168, 255, 0.1), transparent 26%, rgba(99, 212, 113, 0.1) 72%, transparent),
     var(--paper);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body::before {
@@ -524,18 +524,17 @@ h1 {
 }
 
 .story-sticky {
-  position: sticky;
-  top: 102px;
-  align-self: start;
-  height: calc(100vh - 126px);
-  display: grid;
-  place-items: center;
+  position: relative;
+  align-self: stretch;
+  display: block;
 }
 
 .story-dashboard {
-  position: relative;
+  position: sticky;
+  top: 102px;
   width: min(100%, 590px);
   min-height: 650px;
+  margin: 0 auto;
   border: 3px solid var(--ink);
   border-radius: 8px;
   background: #151515;
@@ -725,17 +724,23 @@ h1 {
   min-height: 140vh;
   margin: 4rem 0;
   overflow: hidden;
+  contain: paint;
 }
 
 .horizontal-pin {
   overflow: hidden;
+  contain: paint;
   padding: 2rem 0;
+}
+
+.pin-spacer {
+  overflow: hidden !important;
 }
 
 .horizontal-track {
   display: flex;
   gap: 1rem;
-  width: max-content;
+  width: 100%;
   padding: 1rem 0 2rem;
 }
 
@@ -1199,9 +1204,13 @@ select {
   }
 
   .story-sticky {
-    position: sticky;
-    top: 102px;
-    height: auto;
+    position: relative;
+    top: auto;
+  }
+
+  .story-dashboard {
+    position: relative;
+    top: auto;
   }
 
   .scroll-story {
