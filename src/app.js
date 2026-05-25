@@ -3,6 +3,7 @@
   var activeTab = "html";
   var previewTimeline = null;
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var motionScale = prefersReducedMotion.matches ? 0.65 : 1;
 
   var copy = {
     es: {
@@ -387,7 +388,7 @@
   }
 
   function runMotion() {
-    if (!window.gsap || prefersReducedMotion.matches) {
+    if (!window.gsap) {
       return;
     }
     if (previewTimeline) {
@@ -610,7 +611,7 @@
   }
 
   function initScrollAnimations() {
-    if (!window.gsap || !window.ScrollTrigger || prefersReducedMotion.matches) {
+    if (!window.gsap || !window.ScrollTrigger) {
       return;
     }
 
@@ -628,7 +629,7 @@
     });
 
     window.gsap.from(".hero-line", {
-      y: 90,
+      y: 90 * motionScale,
       autoAlpha: 0,
       rotate: -3,
       duration: 0.9,
@@ -638,10 +639,10 @@
 
     window.gsap.to(".moving-card", {
       y: function (index) {
-        return index % 2 ? 72 : -54;
+        return (index % 2 ? 72 : -54) * motionScale;
       },
       x: function (index) {
-        return index === 1 ? -36 : 26;
+        return (index === 1 ? -36 : 26) * motionScale;
       },
       rotation: function (index) {
         return index % 2 ? -9 : 8;
@@ -657,10 +658,10 @@
 
     window.gsap.to(".code-chip", {
       x: function (index) {
-        return [120, -95, 80][index] || 60;
+        return ([120, -95, 80][index] || 60) * motionScale;
       },
       y: function (index) {
-        return [90, -70, -110][index] || 40;
+        return ([90, -70, -110][index] || 40) * motionScale;
       },
       rotation: function (index) {
         return [12, -9, 16][index] || 8;

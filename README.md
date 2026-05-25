@@ -12,7 +12,7 @@ It shows the animation patterns directly in the page: kinetic text, sticky scene
 - Uses scrub, pin, labels, sticky scenes, floating tags, animated showcase cards, marquees, and horizontal movement.
 - Includes a friendly motion editor with presets, sliders, visible readouts, a playbar, and a changing preview scene.
 - Generates copy-ready HTML, CSS, and JavaScript.
-- Uses simpleParallax for a depth layer.
+- Ships local GSAP, ScrollTrigger, and simpleParallax files so the demo does not depend on CDN loading.
 - Respects `prefers-reduced-motion`.
 
 ## Run

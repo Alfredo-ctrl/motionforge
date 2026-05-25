@@ -4,10 +4,6 @@
       return;
     }
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
     document.querySelectorAll("img[data-parallax]").forEach(function (image) {
       new simpleParallax(image, {
         orientation: image.dataset.orientation || "up",
