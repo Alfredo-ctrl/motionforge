@@ -1,18 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
-  <rect width="1200" height="720" fill="#111317"/>
-  <rect x="58" y="48" width="1084" height="624" fill="#f5f1e8"/>
-  <g stroke="#111317" stroke-width="1" opacity="0.14">
-    <path d="M58 168H1142M58 288H1142M58 408H1142M58 528H1142"/>
-    <path d="M178 48V672M298 48V672M418 48V672M538 48V672M658 48V672M778 48V672M898 48V672M1018 48V672"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">MotionForge scroll playground preview</title>
+  <desc id="desc">A colorful GSAP ScrollTrigger playground with bold text, sticky phone scene, cards, and code export.</desc>
+  <rect width="1200" height="720" fill="#f5f7f2"/>
+  <g opacity=".45">
+    <path d="M0 88H1200M0 176H1200M0 264H1200M0 352H1200M0 440H1200M0 528H1200M0 616H1200" stroke="#141414" stroke-width="1"/>
+    <path d="M88 0V720M176 0V720M264 0V720M352 0V720M440 0V720M528 0V720M616 0V720M704 0V720M792 0V720M880 0V720M968 0V720M1056 0V720M1144 0V720" stroke="#141414" stroke-width="1"/>
   </g>
-  <text x="110" y="128" fill="#111317" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="900">MotionForge</text>
-  <text x="110" y="234" fill="#111317" font-family="Segoe UI, Arial, sans-serif" font-size="86" font-weight="900">GSAP motion lab</text>
-  <text x="114" y="288" fill="#5f6963" font-family="Segoe UI, Arial, sans-serif" font-size="24">Tune, preview, and export scroll-ready animation snippets.</text>
-  <rect x="110" y="376" width="250" height="154" fill="#fffaf1" stroke="#111317" stroke-width="4"/>
-  <rect x="398" y="376" width="250" height="154" fill="#fffaf1" stroke="#111317" stroke-width="4"/>
-  <rect x="686" y="376" width="250" height="154" fill="#fffaf1" stroke="#111317" stroke-width="4"/>
-  <path d="M146 426h132M434 426h132M722 426h132" stroke="#175b47" stroke-width="14" stroke-linecap="round"/>
-  <path d="M146 470h170M434 470h152M722 470h170" stroke="#c6bfb0" stroke-width="12" stroke-linecap="round"/>
-  <path d="M146 512h110M434 512h112M722 512h118" stroke="#c6bfb0" stroke-width="12" stroke-linecap="round"/>
-  <path d="M118 586c122-84 234-94 340-22 100 68 212 64 354-40" fill="none" stroke="#c95f34" stroke-width="12" stroke-linecap="round"/>
+  <rect x="44" y="28" width="1112" height="54" rx="27" fill="#fff" stroke="#141414" stroke-width="5"/>
+  <text x="78" y="62" fill="#141414" font-family="Arial, sans-serif" font-size="20" font-weight="900">motionforge</text>
+  <rect x="930" y="39" width="88" height="32" rx="16" fill="#ffd84d" stroke="#141414" stroke-width="4"/>
+  <circle cx="953" cy="55" r="8" fill="#141414"/>
+  <text x="80" y="160" fill="#a43e2f" font-family="Arial, sans-serif" font-size="18" font-weight="900">GSAP + SCROLLTRIGGER PLAYGROUND</text>
+  <text x="78" y="254" fill="#141414" font-family="Arial, sans-serif" font-size="108" font-weight="900">Webs that</text>
+  <rect x="74" y="274" width="304" height="112" fill="#141414"/>
+  <text x="92" y="362" fill="#f5f7f2" font-family="Arial, sans-serif" font-size="112" font-weight="900">move</text>
+  <text x="78" y="478" fill="#141414" font-family="Arial, sans-serif" font-size="108" font-weight="900">as you scroll.</text>
+  <rect x="84" y="530" width="134" height="46" rx="8" fill="#63d471" stroke="#141414" stroke-width="5"/>
+  <text x="112" y="560" fill="#141414" font-family="Arial, sans-serif" font-size="17" font-weight="900">try scroll</text>
+  <rect x="246" y="530" width="138" height="46" rx="8" fill="#fff" stroke="#141414" stroke-width="5"/>
+  <text x="270" y="560" fill="#141414" font-family="Arial, sans-serif" font-size="17" font-weight="900">builder</text>
+  <g transform="translate(690 132) rotate(2)">
+    <rect width="396" height="420" rx="8" fill="#fff" stroke="#141414" stroke-width="7"/>
+    <rect width="396" height="52" rx="8" fill="#ffd84d" stroke="#141414" stroke-width="7"/>
+    <text x="214" y="34" fill="#141414" font-family="Arial, sans-serif" font-size="17" font-weight="900">scroll-scene.js</text>
+    <rect x="56" y="96" width="116" height="72" rx="8" fill="#fff" stroke="#141414" stroke-width="5"/>
+    <rect x="214" y="170" width="116" height="72" rx="8" fill="#7e66ff" stroke="#141414" stroke-width="5"/>
+    <rect x="90" y="282" width="116" height="72" rx="8" fill="#ff5a4f" stroke="#141414" stroke-width="5"/>
+    <path d="M76 274C164 142 262 340 344 126" fill="none" stroke="#2d725f" stroke-width="12"/>
+    <path d="M72 342C164 256 234 434 354 302" fill="none" stroke="#bd6c4a" stroke-width="10"/>
+    <rect x="36" y="210" width="92" height="38" rx="19" fill="#31a8ff" stroke="#141414" stroke-width="5"/>
+    <text x="55" y="235" fill="#141414" font-family="Arial, sans-serif" font-size="15" font-weight="900">scrub</text>
+    <rect x="254" y="94" width="84" height="38" rx="19" fill="#63d471" stroke="#141414" stroke-width="5"/>
+    <text x="278" y="119" fill="#141414" font-family="Arial, sans-serif" font-size="15" font-weight="900">pin</text>
+  </g>
+  <g transform="translate(682 586)">
+    <rect width="112" height="56" rx="8" fill="#dff5ff" stroke="#141414" stroke-width="5"/>
+    <rect x="134" width="112" height="56" rx="8" fill="#fff0ad" stroke="#141414" stroke-width="5"/>
+    <rect x="268" width="112" height="56" rx="8" fill="#e6ffdf" stroke="#141414" stroke-width="5"/>
+  </g>
 </svg>

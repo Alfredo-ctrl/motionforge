@@ -1,112 +1,253 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MotionForge is a visual GSAP motion builder for scroll reveals, hero sequences, galleries, and portfolio sections.">
-    <title>MotionForge - GSAP Motion Builder</title>
+    <meta name="description" content="MotionForge convierte ideas web en animaciones GSAP con scroll, escenas fijadas y codigo listo para usar.">
+    <title>MotionForge - Scroll Motion Playground</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="src/styles.css">
   </head>
   <body>
-    <div class="page-grid" aria-hidden="true"></div>
-    <div class="sweep-lines" aria-hidden="true"></div>
+    <div class="noise-layer" aria-hidden="true"></div>
+    <div class="scroll-meter" aria-hidden="true"><span></span></div>
 
     <header class="topbar">
-      <a class="wordmark" href="#builder" aria-label="MotionForge home">
-        <span>MotionForge</span>
-      </a>
-      <nav class="topnav" aria-label="Primary navigation">
-        <a href="#builder" data-i18n="navBuilder">Builder</a>
-        <a href="#timeline" data-i18n="navTimeline">Timeline</a>
-        <a href="#export" data-i18n="navExport">Export</a>
+      <a class="wordmark" href="#top">motionforge</a>
+      <nav class="topnav" aria-label="Navegacion principal">
+        <a href="#what" data-i18n="navWhat">Que hace</a>
+        <a href="#scrollStory" data-i18n="navScroll">Scroll</a>
+        <a href="#builder" data-i18n="navBuilder">Editor</a>
+        <a href="#export" data-i18n="navExport">Exportar</a>
       </nav>
-      <button class="language-switch" id="languageToggle" type="button" aria-pressed="false" aria-label="Switch language">
-        <span>EN</span>
-        <span class="switch-track" aria-hidden="true"><span></span></span>
+      <button class="language-switch" id="languageToggle" type="button" aria-pressed="false" aria-label="Cambiar idioma">
         <span>ES</span>
+        <i aria-hidden="true"></i>
+        <span>EN</span>
       </button>
     </header>
 
-    <main>
-      <section class="studio-intro" aria-labelledby="pageTitle">
-        <div class="intro-copy">
-          <p class="eyebrow" data-i18n="eyebrow">GSAP motion studio</p>
-          <h1 id="pageTitle" data-i18n="headline">Design scroll animations you can actually ship.</h1>
-          <p data-i18n="subhead">Tune a preset, test it live, then export clean GSAP code for web sections, cards, galleries, and portfolio stories.</p>
+    <main id="top">
+      <section class="hero" aria-labelledby="pageTitle">
+        <div class="hero-copy">
+          <p class="kicker" data-i18n="heroKicker">GSAP + ScrollTrigger playground</p>
+          <h1 id="pageTitle">
+            <span class="hero-line" data-i18n="heroLineOne">Webs que se</span>
+            <span class="hero-line hero-pop" data-i18n="heroLineTwo">mueven</span>
+            <span class="hero-line" data-i18n="heroLineThree">mientras bajas.</span>
+          </h1>
+          <p class="hero-text" data-i18n="heroText">MotionForge te deja entender, probar y exportar animaciones con scroll sin perderte en codigo raro.</p>
+          <div class="hero-actions">
+            <a class="hero-button" href="#scrollStory" data-i18n="tryScroll">Baja y pruebalo</a>
+            <a class="ghost-button" href="#builder" data-i18n="openBuilder">Abrir editor</a>
+          </div>
         </div>
-        <div class="intro-meter" aria-label="Motion recipe stats">
-          <span data-i18n="meterOne">4 animation presets</span>
-          <span data-i18n="meterTwo">copy-ready code</span>
-          <span data-i18n="meterThree">ScrollTrigger aware</span>
+
+        <div class="hero-stage" aria-label="Vista previa de animacion">
+          <div class="browser-card">
+            <div class="browser-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+              <b>scroll-scene.js</b>
+            </div>
+            <div class="browser-body">
+              <img class="motion-print" src="assets/motion-depth.svg" alt="" data-parallax data-orientation="up right" data-scale="1.12" data-delay="0.4">
+              <div class="code-chip chip-one">pin: true</div>
+              <div class="code-chip chip-two">scrub: 1</div>
+              <div class="code-chip chip-three">snap: labels</div>
+              <div class="moving-card card-a">hero</div>
+              <div class="moving-card card-b">cards</div>
+              <div class="moving-card card-c">text</div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="builder-shell" id="builder" aria-label="Motion builder">
-        <aside class="control-panel" aria-label="Motion controls">
-          <div class="panel-heading">
-            <p class="eyebrow" data-i18n="recipeEyebrow">Motion recipe</p>
-            <h2 data-i18n="recipeTitle">Build the sequence</h2>
+      <section class="what-section" id="what" aria-labelledby="whatTitle">
+        <div class="section-copy">
+          <p class="kicker" data-i18n="whatKicker">Mas claro, menos humo</p>
+          <h2 id="whatTitle" data-i18n="whatTitle">Esto no es una landing formal: es un mini laboratorio visual.</h2>
+        </div>
+        <div class="idea-grid">
+          <article class="idea-card">
+            <span>01</span>
+            <h3 data-i18n="ideaOneTitle">Bajas la pagina</h3>
+            <p data-i18n="ideaOneText">Las escenas reaccionan al scroll: texto, etiquetas, tarjetas y capas se mueven contigo.</p>
+          </article>
+          <article class="idea-card">
+            <span>02</span>
+            <h3 data-i18n="ideaTwoTitle">Ajustas una receta</h3>
+            <p data-i18n="ideaTwoText">Cambias preset, velocidad, direccion, escala, rotacion y estilo desde controles simples.</p>
+          </article>
+          <article class="idea-card">
+            <span>03</span>
+            <h3 data-i18n="ideaThreeTitle">Copias el codigo</h3>
+            <p data-i18n="ideaThreeText">Exporta una base HTML, CSS y JS con GSAP para llevarla a otra web.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="scroll-story" id="scrollStory" aria-label="Historia con scroll">
+        <div class="story-sticky">
+          <div class="story-dashboard">
+            <div class="scene-counter"><span id="sceneCount">01</span><b>/04</b></div>
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-strip">
+                  <div class="phone-frame is-active">
+                    <span class="app-tag">start</span>
+                    <strong data-i18n="phoneOne">Texto entra con ritmo.</strong>
+                    <p>Split text + stagger</p>
+                  </div>
+                  <div class="phone-frame">
+                    <span class="app-tag">cards</span>
+                    <strong data-i18n="phoneTwo">Las tarjetas se apilan.</strong>
+                    <p>Pin + scrub</p>
+                  </div>
+                  <div class="phone-frame">
+                    <span class="app-tag">layers</span>
+                    <strong data-i18n="phoneThree">Las capas dan profundidad.</strong>
+                    <p>Parallax + transform</p>
+                  </div>
+                  <div class="phone-frame">
+                    <span class="app-tag">ship</span>
+                    <strong data-i18n="phoneFour">Copias y lo usas.</strong>
+                    <p>HTML + CSS + JS</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="float-tags" aria-hidden="true">
+              <span class="floating-tag tag-a">ScrollTrigger</span>
+              <span class="floating-tag tag-b">pin()</span>
+              <span class="floating-tag tag-c">timeline</span>
+              <span class="floating-tag tag-d">stagger</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-steps">
+          <article class="story-step is-active" data-scene="0">
+            <span class="step-tag" data-i18n="stepOneTag">Paso 1</span>
+            <h3 data-i18n="stepOneTitle">Primero aparece la idea.</h3>
+            <p data-i18n="stepOneText">El usuario no lee una pared de texto: ve el mensaje entrando por partes, como un video corto pero dentro de la web.</p>
+          </article>
+          <article class="story-step" data-scene="1">
+            <span class="step-tag" data-i18n="stepTwoTag">Paso 2</span>
+            <h3 data-i18n="stepTwoTitle">Luego el scroll controla la escena.</h3>
+            <p data-i18n="stepTwoText">Con scrub y pin, el avance depende de cuanto bajas. Eso crea esa vibra de TikTok/web interactiva que querias.</p>
+          </article>
+          <article class="story-step" data-scene="2">
+            <span class="step-tag" data-i18n="stepThreeTag">Paso 3</span>
+            <h3 data-i18n="stepThreeTitle">Despues entran capas y etiquetas.</h3>
+            <p data-i18n="stepThreeText">Los elementos se cruzan, rotan y cambian de escala para que se sienta hecho a mano y no como plantilla repetida.</p>
+          </article>
+          <article class="story-step" data-scene="3">
+            <span class="step-tag" data-i18n="stepFourTag">Paso 4</span>
+            <h3 data-i18n="stepFourTitle">Al final te llevas el codigo.</h3>
+            <p data-i18n="stepFourText">MotionForge no solo presume animaciones: te da una receta editable para copiarla en tus proyectos.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="horizontal-section" aria-labelledby="effectsTitle">
+        <div class="horizontal-pin">
+          <div class="section-copy compact">
+            <p class="kicker" data-i18n="effectsKicker">Efectos incluidos</p>
+            <h2 id="effectsTitle" data-i18n="effectsTitle">Cada tarjeta enseña una idea de animacion.</h2>
+          </div>
+          <div class="horizontal-track">
+            <article class="effect-card effect-yellow">
+              <span>01</span>
+              <h3>Split words</h3>
+              <p data-i18n="effectOne">Titulos que aparecen palabra por palabra.</p>
+            </article>
+            <article class="effect-card effect-blue">
+              <span>02</span>
+              <h3>Sticky story</h3>
+              <p data-i18n="effectTwo">Una escena fija mientras el contenido avanza.</p>
+            </article>
+            <article class="effect-card effect-red">
+              <span>03</span>
+              <h3>Floating labels</h3>
+              <p data-i18n="effectThree">Etiquetas que cruzan la pantalla con el scroll.</p>
+            </article>
+            <article class="effect-card effect-green">
+              <span>04</span>
+              <h3>Code export</h3>
+              <p data-i18n="effectFour">Codigo base listo para adaptar.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="builder-shell" id="builder" aria-label="Editor de animaciones">
+        <aside class="control-panel">
+          <div class="mini-heading">
+            <p class="kicker" data-i18n="recipeKicker">Editor rapido</p>
+            <h2 data-i18n="recipeTitle">Arma tu movimiento.</h2>
           </div>
 
-          <div class="preset-list" id="presetList" aria-label="Animation presets">
+          <div class="preset-list" id="presetList" aria-label="Presets de animacion">
             <button class="preset-card is-active" type="button" data-preset="hero">
-              <strong data-i18n="presetHero">Hero Reveal</strong>
-              <span data-i18n="presetHeroDesc">Bold entrance for a first section.</span>
+              <strong data-i18n="presetHero">Entrada wow</strong>
+              <span data-i18n="presetHeroDesc">Para el primer pantallazo.</span>
             </button>
             <button class="preset-card" type="button" data-preset="cards">
-              <strong data-i18n="presetCards">Product Cards</strong>
-              <span data-i18n="presetCardsDesc">Staggered panels with useful depth.</span>
+              <strong data-i18n="presetCards">Tarjetas vivas</strong>
+              <span data-i18n="presetCardsDesc">Paneles que entran en grupo.</span>
             </button>
             <button class="preset-card" type="button" data-preset="story">
-              <strong data-i18n="presetStory">Scroll Story</strong>
-              <span data-i18n="presetStoryDesc">Pinned narrative movement.</span>
+              <strong data-i18n="presetStory">Historia con scroll</strong>
+              <span data-i18n="presetStoryDesc">Seccion fijada y narrativa.</span>
             </button>
             <button class="preset-card" type="button" data-preset="gallery">
-              <strong data-i18n="presetGallery">Gallery Motion</strong>
-              <span data-i18n="presetGalleryDesc">Image grid reveal with parallax feel.</span>
+              <strong data-i18n="presetGallery">Galeria con flow</strong>
+              <span data-i18n="presetGalleryDesc">Imagenes y etiquetas con profundidad.</span>
             </button>
           </div>
 
           <div class="control-grid">
             <label class="range-control" for="duration">
-              <span><span data-i18n="duration">Duration</span><output id="durationValue" for="duration">1.20s</output></span>
+              <span><b data-i18n="duration">Duracion</b><output id="durationValue" for="duration">1.20s</output></span>
               <input id="duration" type="range" min="0.35" max="2.4" step="0.05" value="1.2">
             </label>
             <label class="range-control" for="stagger">
-              <span><span data-i18n="stagger">Stagger</span><output id="staggerValue" for="stagger">0.08s</output></span>
+              <span><b>Stagger</b><output id="staggerValue" for="stagger">0.08s</output></span>
               <input id="stagger" type="range" min="0" max="0.28" step="0.01" value="0.08">
             </label>
             <label class="range-control" for="distance">
-              <span><span data-i18n="distance">Distance</span><output id="distanceValue" for="distance">70px</output></span>
+              <span><b data-i18n="distance">Distancia</b><output id="distanceValue" for="distance">70px</output></span>
               <input id="distance" type="range" min="0" max="180" step="5" value="70">
             </label>
             <label class="range-control" for="rotation">
-              <span><span data-i18n="rotation">Rotation</span><output id="rotationValue" for="rotation">0deg</output></span>
+              <span><b data-i18n="rotation">Rotacion</b><output id="rotationValue" for="rotation">0deg</output></span>
               <input id="rotation" type="range" min="-24" max="24" step="1" value="0">
             </label>
             <label class="range-control" for="scale">
-              <span><span data-i18n="scale">Scale</span><output id="scaleValue" for="scale">0.90x</output></span>
+              <span><b data-i18n="scale">Escala</b><output id="scaleValue" for="scale">0.90x</output></span>
               <input id="scale" type="range" min="0.72" max="1.12" step="0.01" value="0.9">
             </label>
             <label class="range-control" for="scrub">
-              <span><span data-i18n="scrub">Scrub</span><output id="scrubValue" for="scrub">0.80s</output></span>
+              <span><b>Scrub</b><output id="scrubValue" for="scrub">0.80s</output></span>
               <input id="scrub" type="range" min="0.1" max="2.5" step="0.1" value="0.8">
             </label>
           </div>
 
           <div class="select-grid">
             <label for="direction">
-              <span data-i18n="direction">Direction</span>
+              <span data-i18n="direction">Direccion</span>
               <select id="direction">
-                <option value="up">Up</option>
-                <option value="down">Down</option>
-                <option value="left">Left</option>
-                <option value="right">Right</option>
+                <option value="up">Arriba</option>
+                <option value="down">Abajo</option>
+                <option value="left">Izquierda</option>
+                <option value="right">Derecha</option>
               </select>
             </label>
             <label for="ease">
-              <span data-i18n="ease">Ease</span>
+              <span>Ease</span>
               <select id="ease">
                 <option value="power3.out">power3.out</option>
                 <option value="expo.out">expo.out</option>
@@ -116,11 +257,11 @@
               </select>
             </label>
             <label for="theme">
-              <span data-i18n="theme">Theme</span>
+              <span data-i18n="theme">Color</span>
               <select id="theme">
-                <option value="ink">Ink Studio</option>
-                <option value="paper">Paper Lab</option>
-                <option value="signal">Signal Desk</option>
+                <option value="pop">Pop</option>
+                <option value="fresh">Fresh</option>
+                <option value="night">Night</option>
               </select>
             </label>
           </div>
@@ -129,83 +270,64 @@
             <label class="toggle">
               <input id="split" type="checkbox" checked>
               <span></span>
-              <b data-i18n="splitText">Split text</b>
+              <b data-i18n="splitText">Separar texto</b>
             </label>
             <label class="toggle">
-              <input id="scroll" type="checkbox">
+              <input id="scroll" type="checkbox" checked>
               <span></span>
               <b>ScrollTrigger</b>
             </label>
             <label class="toggle">
               <input id="pin" type="checkbox">
               <span></span>
-              <b data-i18n="pin">Pin section</b>
+              <b data-i18n="pin">Fijar seccion</b>
             </label>
           </div>
 
           <div class="action-row">
-            <button class="primary-action" id="runMotion" type="button" data-i18n="runMotion">Run motion</button>
-            <button class="secondary-action" id="randomize" type="button" data-i18n="randomize">Randomize</button>
-            <button class="secondary-action" id="saveRecipe" type="button" data-i18n="saveRecipe">Save recipe</button>
+            <button class="primary-action" id="runMotion" type="button" data-i18n="runMotion">Animar preview</button>
+            <button class="secondary-action" id="randomize" type="button" data-i18n="randomize">Sorprendeme</button>
+            <button class="secondary-action" id="saveRecipe" type="button" data-i18n="saveRecipe">Guardar</button>
           </div>
         </aside>
 
         <section class="preview-panel" aria-labelledby="previewTitle">
-          <div class="panel-heading preview-heading">
-            <div>
-              <p class="eyebrow" data-i18n="livePreview">Live preview</p>
-              <h2 id="previewTitle">Hero Reveal</h2>
-            </div>
-            <span class="status-pill" id="statusPill" data-i18n="ready">Ready</span>
+          <div class="mini-heading preview-heading">
+            <p class="kicker" data-i18n="livePreview">Preview</p>
+            <h2 id="previewTitle">Entrada wow</h2>
+            <span class="status-pill" id="statusPill" data-i18n="ready">Listo</span>
           </div>
 
-          <div class="preview-stage theme-ink" id="previewStage">
-            <div class="stage-rail" aria-hidden="true"></div>
-            <div class="depth-layer" aria-hidden="true">
-              <img src="assets/motion-depth.svg" alt="" data-parallax data-orientation="down left" data-scale="1.14" data-delay="0.55">
-            </div>
-            <div class="stage-content">
-              <p class="stage-kicker" id="stageKicker">Portfolio launch</p>
-              <h3 id="stageTitle">Make the first screen feel alive.</h3>
-              <p class="preview-copy" id="stageCopy">A layered entrance with split text, controlled distance, and soft stagger for portfolio-ready sections.</p>
-              <div class="preview-chips" id="previewChips"></div>
+          <div class="preview-stage theme-pop" id="previewStage">
+            <div class="stage-tags" id="previewChips"></div>
+            <div class="stage-copy">
+              <p class="stage-kicker" id="stageKicker">Hero con ritmo</p>
+              <h3 id="stageTitle">Tu seccion entra como escena.</h3>
+              <p class="preview-copy" id="stageCopy">Una entrada clara con palabras separadas, etiquetas flotando y tarjetas que aterrizan con personalidad.</p>
             </div>
             <div class="motion-cards" id="motionCards"></div>
-            <div class="flow-lines" aria-hidden="true">
-              <span class="flow-line"></span>
-              <span class="flow-line"></span>
-              <span class="flow-line"></span>
-            </div>
           </div>
         </section>
       </section>
 
-      <section class="timeline-section" id="timeline" aria-labelledby="timelineTitle">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="timelineEyebrow">Timeline</p>
-          <h2 id="timelineTitle" data-i18n="timelineTitle">See the motion as a sequence.</h2>
-        </div>
-        <div class="timeline-board" id="timelineBoard"></div>
-      </section>
-
       <section class="export-section" id="export" aria-labelledby="exportTitle">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="exportEyebrow">Export</p>
-          <h2 id="exportTitle" data-i18n="exportTitle">Take the recipe into your next project.</h2>
+        <div class="section-copy compact">
+          <p class="kicker" data-i18n="exportKicker">Codigo listo</p>
+          <h2 id="exportTitle" data-i18n="exportTitle">Copia la receta y adaptala a tu web.</h2>
         </div>
         <div class="export-shell">
-          <div class="code-tabs" role="tablist" aria-label="Code export tabs">
+          <div class="code-tabs" role="tablist" aria-label="Tabs de codigo">
             <button class="is-active" type="button" data-tab="html" role="tab" aria-selected="true">HTML</button>
             <button type="button" data-tab="css" role="tab" aria-selected="false">CSS</button>
             <button type="button" data-tab="js" role="tab" aria-selected="false">JS</button>
           </div>
-          <button class="copy-button" id="copyCode" type="button" data-i18n="copyCode">Copy code</button>
+          <button class="copy-button" id="copyCode" type="button" data-i18n="copyCode">Copiar</button>
           <pre class="code-block"><code id="codeOutput"></code></pre>
         </div>
       </section>
     </main>
 
-    <div class="toast" id="toast" role="status" aria-live="polite">Recipe saved</div>
+    <div class="toast" id="toast" role="status" aria-live="polite">Listo</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>

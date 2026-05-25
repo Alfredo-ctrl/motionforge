@@ -1,18 +1,18 @@
 # MotionForge
 
-MotionForge is a visual GSAP motion builder for portfolio sections, scroll reveals, landing page blocks, and animated snippets.
+MotionForge is a visual GSAP + ScrollTrigger playground for building scroll-driven web sections.
 
-It lets you tune animation presets, preview them live, and export clean HTML, CSS, and JavaScript that can be reused in other projects.
+It shows the animation patterns directly in the page: sticky scenes, scrubbed scroll movement, floating labels, horizontal cards, live presets, and copy-ready HTML/CSS/JS.
 
 ![MotionForge preview](assets/motionforge-preview.svg)
 
 ## What It Does
 
-- Builds GSAP timelines for hero sections, cards, galleries, and scroll stories.
-- Supports text splitting, stagger, easing, movement direction, rotation, scale, scrub, pin, and parallax intensity.
+- Demonstrates real scroll-controlled animation with GSAP ScrollTrigger.
+- Uses scrub, pin, labels, sticky scenes, floating tags, and horizontal movement.
+- Includes a friendly motion editor with presets and sliders.
 - Generates copy-ready HTML, CSS, and JavaScript.
-- Includes ScrollTrigger output for scroll-based sections.
-- Uses simpleParallax for a subtle depth layer.
+- Uses simpleParallax for a depth layer.
 - Respects `prefers-reduced-motion`.
 
 ## Run
@@ -41,4 +41,4 @@ You can also open `index.html` directly in a browser.
 
 ## Why It Exists
 
-Good motion can make a web project feel more intentional, but copying random snippets usually creates messy code. MotionForge gives a small visual lab for learning, tuning, and exporting animation patterns cleanly.
+Scroll animation is easier to understand when you can feel it in the page. MotionForge is a small visual lab for learning how GSAP motion works and exporting a clean starting point for real projects.
