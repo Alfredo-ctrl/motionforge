@@ -780,26 +780,25 @@
       });
     });
 
-    var horizontalTrack = document.querySelector(".horizontal-track");
-    if (horizontalTrack) {
-      window.gsap.to(horizontalTrack, {
-        x: function () {
-          var travel = horizontalTrack.scrollWidth - window.innerWidth + 80;
-          return travel > 0 ? -travel : 0;
-        },
-        ease: "none",
+    window.gsap.utils.toArray(".effect-card").forEach(function (card, index) {
+      window.gsap.from(card, {
+        x: index % 2 === 0 ? -34 * motionScale : 34 * motionScale,
+        y: 90 * motionScale,
+        rotation: index % 2 === 0 ? -4 : 4,
+        autoAlpha: 0,
+        duration: 0.75,
+        ease: "back.out(1.35)",
         scrollTrigger: {
-          trigger: ".horizontal-section",
-          start: "top top",
-          end: function () {
-            return "+=" + Math.max(900, horizontalTrack.scrollWidth - window.innerWidth + 700);
-          },
-          pin: ".horizontal-pin",
-          scrub: 1,
-          invalidateOnRefresh: true
+          trigger: card,
+          start: "top 82%",
+          toggleActions: "play none none reverse"
         }
       });
-    }
+    });
+
+    window.setTimeout(function () {
+      window.ScrollTrigger.refresh();
+    }, 250);
   }
 
   document.querySelectorAll("input, select").forEach(function (control) {
