@@ -1,0 +1,13 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MotionForge banner">
+  <rect width="1200" height="360" rx="34" fill="#f8f7ef"/>
+  <path d="M0 310 C180 220 310 395 510 286 C706 180 872 336 1200 170" stroke="#ff5349" stroke-width="2" opacity=".28"/>
+  <path d="M0 58 H1200 M120 0 V360 M280 0 V360 M440 0 V360 M600 0 V360 M760 0 V360 M920 0 V360 M1080 0 V360" stroke="#111111" opacity=".08"/>
+  
+    <text x="70" y="128" fill="#111111" font-size="22" font-weight="800" letter-spacing="4">MOTIONFORGE</text>
+    <text x="70" y="192" fill="#111111" font-size="58" font-weight="900">MotionForge</text>
+    <foreignObject x="70" y="218" width="610" height="88">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="color:#111111;font:700 24px Segoe UI, Arial, sans-serif;line-height:1.25">A kinetic playground for scroll-driven motion, live snippets, and expressive web sections.</div>
+    </foreignObject>
+  <rect x="720" y="80" width="100" height="210" rx="12" fill="#54d17a"/><rect x="845" y="50" width="115" height="250" rx="12" fill="#ff5349"/><rect x="985" y="100" width="92" height="175" rx="12" fill="#111111"/><path d="M700 310 C810 250 950 350 1110 265" fill="none" stroke="#54d17a" stroke-width="10"/>
+  <text x="70" y="315" fill="#111111" font-size="18" font-weight="800" opacity=".72">Portfolio README identity 09</text>
+</svg>

@@ -1,3 +1,39 @@
+<!-- portfolio:start -->
+<p align="center">
+  <img src="assets/readme-hero.svg" alt="MotionForge banner" width="100%" />
+</p>
+
+<h1 align="center">MotionForge</h1>
+
+<p align="center"><strong>A kinetic playground for scroll-driven motion, live snippets, and expressive web sections.</strong></p>
+
+<p align="center">
+<img alt="focus: GSAP motion" src="https://img.shields.io/badge/focus-GSAP%20motion-ff5349?style=for-the-badge&labelColor=111111" />
+  <img alt="surface: web editor" src="https://img.shields.io/badge/surface-web%20editor-ff5349?style=for-the-badge&labelColor=111111" />
+  <img alt="energy: high" src="https://img.shields.io/badge/energy-high-ff5349?style=for-the-badge&labelColor=111111" />
+</p>
+
+## Kinetic Identity
+
+MotionForge is the loudest visual repo in the set: bold cards, moving text, scroll choreography, and copy-ready motion patterns.
+
+## What It Offers
+
+A motion showcase plus an editor-like surface for playing with animation ideas.
+
+## Run The Lab
+
+`npm install` then `npm run dev` or open the static page depending on your setup.
+
+## Portfolio Note
+
+This repository has its own visual identity inside the portfolio. The goal is that every project feels like a different product, not another copy of the same template.
+<!-- portfolio:end -->
+
+---
+
+## Existing Project Notes
+
 # MotionForge
 
 MotionForge is a visual GSAP + ScrollTrigger playground for building scroll-driven web sections.
